@@ -1,0 +1,29 @@
+# data (downloaded separately; see dataset/README.md)
+data/*
+!data/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# local configuration and secrets
+config.yaml
+*.env
+.env
+
+# logs and run outputs
+*.log
+validation_results_*.csv
+
+# OS / editors
+.DS_Store
+__MACOSX/
+.vscode/
+.idea/
+
+# 4diac IDE workspace files (the workspace is the iec61499 folder)
+iec61499/.metadata/
+iec61499/Tool Library/

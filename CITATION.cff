@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this code or the dataset, please cite the dissertation and/or the article below."
+title: "IIoT Autonomous Maintenance: code, models, and results"
+authors:
+  - family-names: Mota
+    given-names: Pedro
+repository-code: "https://github.com/pedrodsmota/iiot-autonomous-maintenance"
+license: MIT
+date-released: 2026-11-04
+keywords:
+  - predictive maintenance
+  - prescriptive maintenance
+  - digital twin
+  - IEC 61499
+  - additive manufacturing
+  - remaining useful life
+preferred-citation:
+  type: thesis
+  thesis-type: "MSc dissertation"
+  title: "Leveraging IEC 61499 for Autonomous Maintenance: Digital Twin Integration and 3D Printing in Distributed Control Systems"
+  authors:
+    - family-names: Mota
+      given-names: Pedro
+  institution:
+    name: "Faculty of Engineering, University of Porto"
+  year: 2026
+references:
+  - type: article
+    title: "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing"
+    authors:
+      - family-names: Mota
+        given-names: Pedro
+      - family-names: Pinto
+        given-names: Rui
+    journal: "Applied Sciences"
+    year: 2026
+    notes: "Accepted for publication"
+  - type: dataset
+    title: "Run-to-failure vibration dataset of 3D-printed robotic grippers"
+    authors:
+      - family-names: Mota
+        given-names: Pedro
+    version: "1.0"
+    year: 2026
+    publisher:
+      name: Zenodo
+    doi: "10.5281/zenodo.23900129"
+    license: CC-BY-4.0

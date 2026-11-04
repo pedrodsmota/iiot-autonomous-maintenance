@@ -1,0 +1,8 @@
+# PdM nodes (Raspberry Pi 3, aarch64): virtual environment of the online estimation
+# scripts (online/), launched by the RUL_ESTIMATION function block. As frozen on the
+# testbed; numpy 2.4 requires Python 3.11 or later.
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.8.0      # models/scaler_*.pkl were fitted with 1.6.1; they load with a version warning
+torch==2.12.0            # CPU build: pip install torch --index-url https://download.pytorch.org/whl/cpu
+pyserial==3.5            # Arm #2 only (Pico W over USB serial)

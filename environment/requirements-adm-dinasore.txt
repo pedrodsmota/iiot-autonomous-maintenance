@@ -1,0 +1,26 @@
+# AdM node (Raspberry Pi 3, OctoPi 1.1.0, Python 3.7): virtual environment of
+# DINASORE v0.1, as frozen on the testbed.
+certifi==2026.4.22
+cffi==1.15.1
+charset-normalizer==3.4.7
+cryptography==45.0.7
+idna==3.10
+joblib==1.3.2
+lxml==5.4.0
+numpy==1.21.6
+opcua==0.98.13
+paho-mqtt==1.5.1
+pandas==1.3.5
+psutil==7.2.2
+pycparser==2.21
+python-dateutil==2.9.0.post0
+python-dotenv==0.21.1
+pytz==2026.2
+requests==2.31.0
+scikit-learn==1.0.2
+scipy==1.7.3          # installed from a prebuilt armv7l wheel
+six==1.17.0
+statistic==0.1.6
+threadpoolctl==3.1.0
+typing_extensions==4.7.1
+urllib3==2.0.7

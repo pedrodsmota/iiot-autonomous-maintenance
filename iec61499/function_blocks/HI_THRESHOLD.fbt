@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Name="HI_THRESHOLD" OpcUa="SERVICE">
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Type="Event"/>
+      <Event Name="RUN" Type="Event">
+        <With Var="VALUE"/>
+        <With Var="THRESHOLD"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INIT_O" Type="Event"/>
+      <Event Name="RUN_O" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="PRINT" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="VALUE" Type="REAL" OpcUa="Variable"/>
+      <VarDeclaration Name="THRESHOLD" Type="REAL" OpcUa="Variable"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="STATUS" Type="STRING" OpcUa="Variable"/>
+    </OutputVars>
+  </InterfaceList>
+</FBType>

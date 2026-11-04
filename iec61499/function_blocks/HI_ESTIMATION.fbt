@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Name="HI_ESTIMATION" OpcUa="SERVICE">
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Type="Event"/>
+      <Event Name="START" Type="Event">
+        <With Var="ENV_PATH"/>
+        <With Var="SCRIPT_PATH"/>
+        <With Var="PORT"/>
+        <With Var="MODE"/>
+        <With Var="MODEL_PATH"/>
+        <With Var="SCALER_PATH"/>
+        <With Var="TOPIC"/>
+      </Event>
+      <Event Name="STOP" Type="Event"/>
+      <Event Name="POLL" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INIT_O" Type="Event"/>
+      <Event Name="STARTED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="START_FAILED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="STOPPED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="DATA" Type="Event">
+        <With Var="HI"/>
+        <With Var="STATUS"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ENV_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="SCRIPT_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="PORT" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="MODE" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="MODEL_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="SCALER_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="TOPIC" Type="STRING" OpcUa="Variable"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="STATUS" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="HI" Type="REAL" OpcUa="Variable"/>
+    </OutputVars>
+  </InterfaceList>
+</FBType>

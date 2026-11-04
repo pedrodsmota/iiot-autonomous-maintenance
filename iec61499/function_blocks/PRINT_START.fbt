@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Name="PRINT_START" OpcUa="SERVICE">
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Type="Event"/>
+      <Event Name="START_PRINT" Type="Event">
+        <With Var="OCTO_URL"/>
+        <With Var="LOCATION"/>
+        <With Var="FILE_PATH"/>
+        <With Var="REQUEST_TIMEOUT"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INIT_O" Type="Event"/>
+      <Event Name="STARTED" Type="Event">
+        <With Var="START_REPLY"/>
+      </Event>
+      <Event Name="START_FAILED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="OCTO_URL" Type="STRING" OpcUa="Constant"/>
+      <VarDeclaration Name="LOCATION" Type="STRING" OpcUa="Constant"/>
+      <VarDeclaration Name="FILE_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="REQUEST_TIMEOUT" Type="REAL" OpcUa="Constant"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="STATUS" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="START_REPLY" Type="STRING" OpcUa="Variable"/>
+    </OutputVars>
+  </InterfaceList>
+</FBType>

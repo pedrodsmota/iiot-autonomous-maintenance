@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<Information>
+  <Position Base="180.0" Gripper="0.0" Left="100.0" Name="180_low_open" Right="80.0"/>
+  <Position Base="180.0" Gripper="0.0" Left="100.0" Name="180_low_open_1" Right="110.0"/>
+  <Position Base="180.0" Gripper="110.0" Left="100.0" Name="180_low_closed" Right="110.0"/>
+  <Position Base="180.0" Gripper="110.0" Left="40.0" Name="180_up" Right="40.0"/>
+  <Position Base="180.0" Gripper="0.0" Left="100.0" Name="180_up_open" Right="40.0"/>
+  <Position Base="80.0" Gripper="110.0" Left="40.0" Name="80_up" Right="40.0"/>
+  <Position Base="80.0" Gripper="110.0" Left="100.0" Name="80_down_closed" Right="110.0"/>
+  <Position Base="80.0" Gripper="0.0" Left="100.0" Name="80_down_open" Right="90.0"/>
+  <Position Base="80.0" Gripper="0.0" Left="100.0" Name="80_down_open_1" Right="110.0"/>
+  <Position Base="80.0" Gripper="0.0" Left="0.0" Name="80_back" Right="0.0"/>
+  <Position Base="180.0" Gripper="0.0" Left="0.0" Name="180_back" Right="0.0"/>
+  <Sequences>
+    <Sequence position_name="80_down_open" time="1.0"/>
+    <Sequence position_name="80_down_open_1" time="1.0"/>
+    <Sequence position_name="80_down_closed" time="1.0"/>
+    <Sequence position_name="80_up" time="1.0"/>
+    <Sequence position_name="180_up" time="1.0"/>
+    <Sequence position_name="180_low_closed" time="1.0"/>
+    <Sequence position_name="180_low_open_1" time="1.0"/>
+    <Sequence position_name="180_back" time="1.0"/>
+  </Sequences>
+</Information>
+

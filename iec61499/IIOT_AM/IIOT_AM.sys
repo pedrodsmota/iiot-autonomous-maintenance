@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Comment="" Name="IIOT_AM">
+  <VersionInfo Author="eliseu" Date="2020-11-25" Version="1.0"/>
+  <Application Comment="" Name="ARM1">
+    <SubAppNetwork>
+      <FB Comment="" Name="ARM1_12_CONTROL" Type="ARM_CONTROL" x="4557.142857142857" y="771.4285714285713">
+        <Parameter Name="FILE" Value="arm1_12"/>
+      </FB>
+      <FB Comment="" Name="ARM1_21_CONTROL" Type="ARM_CONTROL" x="4607.142857142857" y="1871.4285714285713">
+        <Parameter Name="FILE" Value="arm1_21"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT_1" Type="WRITE_MQTT" x="6142.857142857142" y="1857.1428571428569">
+        <Parameter Name="TOPIC" Value="/ARM1_12/RUN"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="READ_MQTT_1" Type="READ_MQTT" x="2571.428571428571" y="1714.2857142857142">
+        <Parameter Name="TOPIC" Value="/ARM1_21/RUN"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5999.999999999999" y="714.2857142857142">
+        <Parameter Name="TOPIC" Value="/ARM2_23/RUN"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT_1" Type="CONNECT_MQTT" x="4978.571428571428" y="-485.71428571428567">
+        <Parameter Name="ADDRESS" Value="10.227.18.22"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="1021.4285714285713" y="-514.2857142857142">
+        <Parameter Name="ADDRESS" Value="localhost"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="2571.428571428571" y="571.4285714285713">
+        <Parameter Name="TOPIC" Value="/ARM1_12/RUN"/>
+      </FB>
+      <FB Comment="" Name="IMU_STREAM" Type="IMU_STREAM" x="3714.2857142857138" y="2857.142857142857">
+        <Parameter Name="EXEC_PATH" Value="./adxl345spi"/>
+        <Parameter Name="SAVE_FILE" Value="/dev/stdout"/>
+        <Parameter Name="DURATION" Value="-1"/>
+        <Parameter Name="FREQ" Value="3200"/>
+        <Parameter Name="TARGET_IP" Value="10.0.0.1"/>
+        <Parameter Name="TARGET_PORT" Value="1883"/>
+        <Parameter Name="TOPIC" Value="ARM1"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O" dx1="307.1428571428571"/>
+        <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="307.1428571428571"/>
+        <Connection Comment="" Destination="ARM1_21_CONTROL.RUN" Source="READ_MQTT_1.RUN_O" dx1="378.57142857142856"/>
+        <Connection Comment="" Destination="ARM1_12_CONTROL.RUN" Source="READ_MQTT.RUN_O" dx1="378.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT_1.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="528.5714285714286"/>
+        <Connection Comment="" Destination="READ_MQTT_1.RUN" Source="CONNECT_MQTT.READ_O" dx1="528.5714285714286"/>
+        <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="ARM1_12_CONTROL.RUN_O" dx1="335.71428571428567"/>
+        <Connection Comment="" Destination="WRITE_MQTT_1.RUN" Source="ARM1_21_CONTROL.RUN_O" dx1="378.57142857142856"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT_1.CLIENT" dx1="85.71428571428571" dx2="85.71428571428571" dy="728.5714285714286"/>
+        <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="307.1428571428571"/>
+        <Connection Comment="" Destination="READ_MQTT_1.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="528.5714285714286"/>
+        <Connection Comment="" Destination="READ_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="528.5714285714286"/>
+        <Connection Comment="" Destination="WRITE_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="2135.7142857142853"/>
+        <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="307.1428571428571"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="ARM2">
+    <SubAppNetwork>
+      <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="2478.5714285714284" y="1699.9999999999998">
+        <Parameter Name="TOPIC" Value="/ARM2_23/RUN"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="857.1428571428571" y="571.4285714285713">
+        <Parameter Name="ADDRESS" Value="localhost"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="ARM2_21_CONTROL" Type="ARM_CONTROL" x="4450.0" y="2885.7142857142853">
+        <Parameter Name="FILE" Value="arm2_21"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5985.714285714285" y="1828.5714285714284">
+        <Parameter Name="TOPIC" Value="/ARM3_23/RUN"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="READ_MQTT_1" Type="READ_MQTT" x="2442.8571428571427" y="2885.7142857142853">
+        <Parameter Name="TOPIC" Value="/ARM2_21/RUN"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT_2" Type="CONNECT_MQTT" x="5571.428571428571" y="428.57142857142856">
+        <Parameter Name="ADDRESS" Value="10.227.18.21"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="ARM2_23_CONTROL" Type="ARM_CONTROL" x="4485.714285714285" y="1699.9999999999998">
+        <Parameter Name="FILE" Value="arm2_23"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT_1" Type="WRITE_MQTT" x="5949.999999999999" y="3014.285714285714">
+        <Parameter Name="TOPIC" Value="/ARM1_21/RUN"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT_1" Type="CONNECT_MQTT" x="3607.142857142857" y="571.4285714285713">
+        <Parameter Name="ADDRESS" Value="10.227.18.20"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="ARM2_21_CONTROL.RUN" Source="READ_MQTT_1.RUN_O" dx1="378.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="178.57142857142856"/>
+        <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="ARM2_23_CONTROL.RUN_O" dx1="399.99999999999994"/>
+        <Connection Comment="" Destination="READ_MQTT_1.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="428.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT_1.RUN" Source="CONNECT_MQTT.READ_O" dx1="428.57142857142856"/>
+        <Connection Comment="" Destination="WRITE_MQTT_1.RUN" Source="ARM2_21_CONTROL.RUN_O" dx1="399.99999999999994"/>
+        <Connection Comment="" Destination="ARM2_23_CONTROL.RUN" Source="READ_MQTT.RUN_O" dx1="378.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O" dx1="178.57142857142856"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="READ_MQTT_1.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="428.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="178.57142857142856"/>
+        <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT_2.CLIENT" dx1="85.71428571428571" dx2="85.71428571428571" dy="728.5714285714286"/>
+        <Connection Comment="" Destination="WRITE_MQTT_1.CLIENT" Source="CONNECT_MQTT_1.CLIENT" dx1="799.9999999999999"/>
+        <Connection Comment="" Destination="READ_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="428.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="178.57142857142856"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="ARM3">
+    <SubAppNetwork>
+      <FB Comment="" Name="CONNECT_MQTT_1" Type="CONNECT_MQTT" x="6071.428571428571" y="685.7142857142857">
+        <Parameter Name="ADDRESS" Value="10.227.18.22"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="1192.8571428571427" y="735.7142857142857">
+        <Parameter Name="ADDRESS" Value="localhost"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="ARM3_23_CONTROL" Type="ARM_CONTROL" x="4828.571428571428" y="1857.1428571428569">
+        <Parameter Name="FILE" Value="arm3_23"/>
+      </FB>
+      <FB Comment="" Name="ARM3_32_CONTROL" Type="ARM_CONTROL" x="4857.142857142857" y="2828.5714285714284">
+        <Parameter Name="FILE" Value="arm3_32"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT_1" Type="WRITE_MQTT" x="7214.285714285714" y="2828.5714285714284">
+        <Parameter Name="TOPIC" Value="/ARM2_21/RUN"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="READ_MQTT_1" Type="READ_MQTT" x="2857.142857142857" y="2714.285714285714">
+        <Parameter Name="TOPIC" Value="/ARM3_32/RUN"/>
+      </FB>
+      <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="2821.428571428571" y="1735.7142857142856">
+        <Parameter Name="TOPIC" Value="/ARM3_23/RUN"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="6321.428571428571" y="1857.1428571428569">
+        <Parameter Name="TOPIC" Value="/ARM3_32/RUN"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="IMU_STREAM" Type="IMU_STREAM" x="4142.857142857142" y="3714.2857142857138">
+        <Parameter Name="EXEC_PATH" Value="./mpu9250"/>
+        <Parameter Name="SAVE_FILE" Value="/dev/stdout"/>
+        <Parameter Name="DURATION" Value="-1"/>
+        <Parameter Name="FREQ" Value="4000"/>
+        <Parameter Name="TARGET_IP" Value="10.0.0.1"/>
+        <Parameter Name="TARGET_PORT" Value="1883"/>
+        <Parameter Name="TOPIC" Value="ARM3"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="178.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT_1.RUN" Source="CONNECT_MQTT.READ_O" dx1="457.1428571428571"/>
+        <Connection Comment="" Destination="ARM3_23_CONTROL.RUN" Source="READ_MQTT.RUN_O" dx1="628.5714285714286"/>
+        <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O" dx1="178.57142857142856"/>
+        <Connection Comment="" Destination="ARM3_32_CONTROL.RUN" Source="READ_MQTT_1.RUN_O" dx1="364.2857142857143"/>
+        <Connection Comment="" Destination="WRITE_MQTT_1.RUN" Source="ARM3_32_CONTROL.RUN_O"/>
+        <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="ARM3_23_CONTROL.RUN_O"/>
+        <Connection Comment="" Destination="READ_MQTT_1.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="457.1428571428571"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="WRITE_MQTT_1.CLIENT" Source="CONNECT_MQTT_1.CLIENT" dx1="142.85714285714283"/>
+        <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="3535.7142857142853"/>
+        <Connection Comment="" Destination="READ_MQTT_1.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="457.1428571428571"/>
+        <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="178.57142857142856"/>
+        <Connection Comment="" Destination="READ_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="457.1428571428571"/>
+        <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="178.57142857142856"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="PRINTER">
+    <SubAppNetwork>
+      <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="3857.142857142857" y="285.71428571428567">
+        <Parameter Name="TOPIC" Value="/PRINT"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="1142.8571428571427" y="1142.8571428571427">
+        <Parameter Name="ADDRESS" Value="localhost"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="PRINT_CHECK" Type="PRINT_CHECK" x="3142.8571428571427" y="1857.1428571428569">
+        <Parameter Name="OCTO_URL" Value="http://localhost"/>
+      </FB>
+      <FB Comment="" Name="PRINT_QUEUE" Type="PRINT_QUEUE" x="5999.999999999999" y="714.2857142857142"/>
+      <FB Comment="" Name="PRINT_START" Type="PRINT_START" x="8714.285714285714" y="714.2857142857142">
+        <Parameter Name="OCTO_URL" Value="http://localhost"/>
+        <Parameter Name="LOCATION" Value="local"/>
+        <Parameter Name="FILE_PATH" Value="gripper.gcode"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O" dx1="385.71428571428567"/>
+        <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O" dx1="385.71428571428567"/>
+        <Connection Comment="" Destination="PRINT_QUEUE.REQUEST" Source="READ_MQTT.RUN_O" dx1="214.28571428571428"/>
+        <Connection Comment="" Destination="PRINT_START.START_PRINT" Source="PRINT_QUEUE.START_PRINT" dx1="264.2857142857143"/>
+        <Connection Comment="" Destination="PRINT_QUEUE.CHECK" Source="PRINT_CHECK.READ_O" dx1="771.4285714285713"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="385.71428571428567"/>
+        <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES" dx1="385.71428571428567"/>
+        <Connection Comment="" Destination="PRINT_QUEUE.JOB_STATE" Source="PRINT_CHECK.JOB_STATE" dx1="135.7142857142857"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="PsM1">
+    <SubAppNetwork>
+      <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5428.571428571428" y="999.9999999999999">
+        <Parameter Name="TOPIC" Value="/PRINT"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT_2" Type="CONNECT_MQTT" x="4285.714285714285" y="1999.9999999999998">
+        <Parameter Name="ADDRESS" Value="10.227.155.198"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="RUL_ESTIMATION" Type="RUL_ESTIMATION" x="1714.2857142857142" y="999.9999999999999">
+        <Parameter Name="ENV_PATH" Value="myenv"/>
+        <Parameter Name="SCRIPT_PATH" Value="online_rul_adxl.py"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="MODE" Value="stdin"/>
+        <Parameter Name="MODEL_PATH" Value="model_adxl.pt"/>
+        <Parameter Name="SCALER_PATH" Value="scaler_adxl.pkl"/>
+        <Parameter Name="TOPIC" Value="ARM1"/>
+      </FB>
+      <FB Comment="" Name="RUL_THRESHOLD" Type="RUL_THRESHOLD" x="3571.428571428571" y="999.9999999999999">
+        <Parameter Name="THRESHOLD" Value="4.47"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="RUL_THRESHOLD.RUN" Source="RUL_ESTIMATION.DATA" dx1="407.1428571428571"/>
+        <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="RUL_THRESHOLD.PRINT" dx1="321.4285714285714"/>
+        <Connection Comment="" Destination="RUL_ESTIMATION.POLL" Source="RUL_ESTIMATION.DATA" dx1="85.71428571428571" dx2="85.71428571428571" dy="-49.99999999999999"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT_2.CLIENT" dx1="128.57142857142856"/>
+        <Connection Comment="" Destination="RUL_THRESHOLD.VALUE" Source="RUL_ESTIMATION.RUL" dx1="407.1428571428571"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="PsM2">
+    <SubAppNetwork>
+      <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5571.428571428571" y="714.2857142857142">
+        <Parameter Name="TOPIC" Value="/PRINT"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <FB Comment="" Name="RUL_THRESHOLD" Type="RUL_THRESHOLD" x="3571.428571428571" y="857.1428571428571">
+        <Parameter Name="THRESHOLD" Value="3.93"/>
+      </FB>
+      <FB Comment="" Name="RUL_ESTIMATION" Type="RUL_ESTIMATION" x="1571.4285714285713" y="857.1428571428571">
+        <Parameter Name="ENV_PATH" Value="myenv"/>
+        <Parameter Name="SCRIPT_PATH" Value="online_rul_piezo.py"/>
+        <Parameter Name="PORT" Value="/dev/ttyACM0"/>
+        <Parameter Name="MODEL_PATH" Value="model_piezo.pt"/>
+        <Parameter Name="SCALER_PATH" Value="scaler_piezo.pkl"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="4142.857142857142" y="1857.1428571428569">
+        <Parameter Name="ADDRESS" Value="10.227.155.198"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="RUL_THRESHOLD.RUN" Source="RUL_ESTIMATION.DATA" dx1="485.71428571428567"/>
+        <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="RUL_THRESHOLD.PRINT" dx1="107.14285714285714"/>
+        <Connection Comment="" Destination="RUL_ESTIMATION.POLL" Source="RUL_ESTIMATION.DATA" dx1="85.71428571428571" dx2="85.71428571428571" dy="-49.99999999999999"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="RUL_THRESHOLD.VALUE" Source="RUL_ESTIMATION.RUL" dx1="485.71428571428567"/>
+        <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="199.99999999999997"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Comment="" Name="PsM3">
+    <SubAppNetwork>
+      <FB Comment="" Name="RUL_THRESHOLD" Type="RUL_THRESHOLD" x="3857.142857142857" y="571.4285714285713">
+        <Parameter Name="THRESHOLD" Value="4.63"/>
+      </FB>
+      <FB Comment="" Name="RUL_ESTIMATION" Type="RUL_ESTIMATION" x="1714.2857142857142" y="571.4285714285713">
+        <Parameter Name="ENV_PATH" Value="my_env"/>
+        <Parameter Name="SCRIPT_PATH" Value="online_rul_mpu.py"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="MODE" Value="live"/>
+        <Parameter Name="MODEL_PATH" Value="model_mpu.pt"/>
+        <Parameter Name="SCALER_PATH" Value="scaler_mpu.pkl"/>
+        <Parameter Name="TOPIC" Value="ARM3"/>
+      </FB>
+      <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="3999.9999999999995" y="1714.2857142857142">
+        <Parameter Name="ADDRESS" Value="10.227.155.198"/>
+        <Parameter Name="PORT" Value="1883"/>
+        <Parameter Name="TIMEOUT" Value="30"/>
+      </FB>
+      <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5714.285714285714" y="571.4285714285713">
+        <Parameter Name="TOPIC" Value="/PRINT"/>
+        <Parameter Name="MESSAGE" Value="V"/>
+      </FB>
+      <EventConnections>
+        <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="RUL_THRESHOLD.PRINT" dx1="464.2857142857142"/>
+        <Connection Comment="" Destination="RUL_THRESHOLD.RUN" Source="RUL_ESTIMATION.DATA" dx1="557.1428571428571"/>
+        <Connection Comment="" Destination="RUL_ESTIMATION.POLL" Source="RUL_ESTIMATION.DATA" dx1="85.71428571428571" dx2="85.71428571428571" dy="-49.99999999999999"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT" dx1="399.99999999999994"/>
+        <Connection Comment="" Destination="RUL_THRESHOLD.VALUE" Source="RUL_ESTIMATION.RUL" dx1="557.1428571428571"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Comment="" Name="ARM1" Type="FORTE_PC" x="571.4285714285713" y="1571.4285714285713">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.20:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="255,190,111"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5999.999999999999" y="714.2857142857142">
+          <Parameter Name="TOPIC" Value="/ARM2_23/RUN"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="1021.4285714285713" y="-514.2857142857142">
+          <Parameter Name="ADDRESS" Value="localhost"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="WRITE_MQTT_1" Type="WRITE_MQTT" x="6142.857142857142" y="1857.1428571428569">
+          <Parameter Name="TOPIC" Value="/ARM1_12/RUN"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT_1" Type="READ_MQTT" x="2571.428571428571" y="1714.2857142857142">
+          <Parameter Name="TOPIC" Value="/ARM1_21/RUN"/>
+        </FB>
+        <FB Comment="" Name="ARM1_12_CONTROL" Type="ARM_CONTROL" x="4557.142857142857" y="771.4285714285713">
+          <Parameter Name="FILE" Value="arm1_12"/>
+        </FB>
+        <FB Comment="" Name="ARM1_21_CONTROL" Type="ARM_CONTROL" x="4607.142857142857" y="1871.4285714285713">
+          <Parameter Name="FILE" Value="arm1_21"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT_1" Type="CONNECT_MQTT" x="4978.571428571428" y="-485.71428571428567">
+          <Parameter Name="ADDRESS" Value="10.227.18.22"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="2571.428571428571" y="571.4285714285713">
+          <Parameter Name="TOPIC" Value="/ARM1_12/RUN"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="READ_MQTT_1.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="READ_MQTT_1.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="ARM1_21_CONTROL.RUN" Source="READ_MQTT_1.RUN_O"/>
+          <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="ARM1_12_CONTROL.RUN" Source="READ_MQTT.RUN_O"/>
+          <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="ARM1_12_CONTROL.RUN_O"/>
+          <Connection Comment="" Destination="WRITE_MQTT_1.RUN" Source="ARM1_21_CONTROL.RUN_O"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="WRITE_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT_1.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+          <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT_1.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM2" Type="FORTE_PC" x="2835.7142857142853" y="1571.4285714285713">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.22:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="224,72,62"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="ARM2_23_CONTROL" Type="ARM_CONTROL" x="4485.714285714285" y="1699.9999999999998">
+          <Parameter Name="FILE" Value="arm2_23"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT_1" Type="READ_MQTT" x="2442.8571428571427" y="2885.7142857142853">
+          <Parameter Name="TOPIC" Value="/ARM2_21/RUN"/>
+        </FB>
+        <FB Comment="" Name="WRITE_MQTT_1" Type="WRITE_MQTT" x="5949.999999999999" y="3014.285714285714">
+          <Parameter Name="TOPIC" Value="/ARM1_21/RUN"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="857.1428571428571" y="571.4285714285713">
+          <Parameter Name="ADDRESS" Value="localhost"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT_2" Type="CONNECT_MQTT" x="5571.428571428571" y="428.57142857142856">
+          <Parameter Name="ADDRESS" Value="10.227.18.21"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="2478.5714285714284" y="1699.9999999999998">
+          <Parameter Name="TOPIC" Value="/ARM2_23/RUN"/>
+        </FB>
+        <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5985.714285714285" y="1828.5714285714284">
+          <Parameter Name="TOPIC" Value="/ARM3_23/RUN"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="ARM2_21_CONTROL" Type="ARM_CONTROL" x="4450.0" y="2885.7142857142853">
+          <Parameter Name="FILE" Value="arm2_21"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT_1" Type="CONNECT_MQTT" x="3607.142857142857" y="571.4285714285713">
+          <Parameter Name="ADDRESS" Value="10.227.18.20"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="READ_MQTT_1.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="READ_MQTT_1.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="ARM2_23_CONTROL.RUN" Source="READ_MQTT.RUN_O"/>
+          <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="ARM2_23_CONTROL.RUN_O"/>
+          <Connection Comment="" Destination="ARM2_21_CONTROL.RUN" Source="READ_MQTT_1.RUN_O"/>
+          <Connection Comment="" Destination="WRITE_MQTT_1.RUN" Source="ARM2_21_CONTROL.RUN_O"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="READ_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT_1.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+          <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+          <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT_2.CLIENT"/>
+          <Connection Comment="" Destination="WRITE_MQTT_1.CLIENT" Source="CONNECT_MQTT_1.CLIENT"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM3" Type="FORTE_PC" x="4992.857142857142" y="1571.4285714285713">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.21:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="35,74,204"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="ARM3_32_CONTROL" Type="ARM_CONTROL" x="4942.857142857142" y="2807.142857142857">
+          <Parameter Name="FILE" Value="arm3_32"/>
+        </FB>
+        <FB Comment="" Name="WRITE_MQTT_1" Type="WRITE_MQTT" x="7299.999999999999" y="2807.142857142857">
+          <Parameter Name="TOPIC" Value="/ARM2_21/RUN"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="2907.142857142857" y="1714.2857142857142">
+          <Parameter Name="TOPIC" Value="/ARM3_23/RUN"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT_1" Type="READ_MQTT" x="2942.8571428571427" y="2692.8571428571427">
+          <Parameter Name="TOPIC" Value="/ARM3_32/RUN"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT_1" Type="CONNECT_MQTT" x="6157.142857142857" y="664.2857142857142">
+          <Parameter Name="ADDRESS" Value="10.227.18.22"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="6414.285714285714" y="1835.7142857142856">
+          <Parameter Name="TOPIC" Value="/ARM3_32/RUN"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="1285.7142857142856" y="714.2857142857142">
+          <Parameter Name="ADDRESS" Value="localhost"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="ARM3_23_CONTROL" Type="ARM_CONTROL" x="4914.285714285714" y="1835.7142857142856">
+          <Parameter Name="FILE" Value="arm3_23"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="WRITE_MQTT_1.RUN" Source="ARM3_32_CONTROL.RUN_O"/>
+          <Connection Comment="" Destination="ARM3_32_CONTROL.RUN" Source="READ_MQTT_1.RUN_O"/>
+          <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="READ_MQTT_1.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="READ_MQTT_1.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="ARM3_23_CONTROL.RUN" Source="READ_MQTT.RUN_O"/>
+          <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="ARM3_23_CONTROL.RUN_O"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="WRITE_MQTT_1.CLIENT" Source="CONNECT_MQTT_1.CLIENT"/>
+          <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT_1.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+          <Connection Comment="" Destination="READ_MQTT_1.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+          <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="PRINTER" Type="FORTE_PC" x="8285.714285714284" y="1571.4285714285713">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.155.198:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="237,162,135"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="PRINT_START" Type="PRINT_START" x="6999.999999999999" y="714.2857142857142">
+          <Parameter Name="OCTO_URL" Value="http://localhost"/>
+          <Parameter Name="LOCATION" Value="local"/>
+          <Parameter Name="FILE_PATH" Value="gripper.gcode"/>
+        </FB>
+        <FB Comment="" Name="PRINT_QUEUE" Type="PRINT_QUEUE" x="4857.142857142857" y="714.2857142857142"/>
+        <FB Comment="" Name="PRINT_CHECK" Type="PRINT_CHECK" x="7142.857142857142" y="1857.1428571428569">
+          <Parameter Name="OCTO_URL" Value="http://localhost"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="1428.5714285714284" y="999.9999999999999">
+          <Parameter Name="ADDRESS" Value="localhost"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="READ_MQTT" Type="READ_MQTT" x="3121.428571428571" y="1035.7142857142856">
+          <Parameter Name="TOPIC" Value="/PRINT"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="PRINT_START.START_PRINT" Source="PRINT_QUEUE.START_PRINT"/>
+          <Connection Comment="" Destination="PRINT_QUEUE.REQUEST" Source="READ_MQTT.RUN_O"/>
+          <Connection Comment="" Destination="READ_MQTT.RUN" Source="CONNECT_MQTT.READ_O"/>
+          <Connection Comment="" Destination="READ_MQTT.SUBS_TOPIC" Source="CONNECT_MQTT.INIT_O"/>
+          <Connection Comment="" Destination="PRINT_QUEUE.CHECK" Source="PRINT_CHECK.READ_O"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="PRINT_QUEUE.JOB_STATE" Source="PRINT_CHECK.JOB_STATE"/>
+          <Connection Comment="" Destination="READ_MQTT.MESSAGES" Source="CONNECT_MQTT.MESSAGES"/>
+          <Connection Comment="" Destination="READ_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM3_DT" Type="FORTE_PC" x="6999.999999999999" y="2857.142857142857">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.236:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="75,237,165"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="RUL_THRESHOLD" Type="RUL_THRESHOLD" x="3857.142857142857" y="571.4285714285713">
+          <Parameter Name="THRESHOLD" Value="4.63"/>
+        </FB>
+        <FB Comment="" Name="RUL_ESTIMATION" Type="RUL_ESTIMATION" x="1714.2857142857142" y="571.4285714285713">
+          <Parameter Name="ENV_PATH" Value="my_env"/>
+          <Parameter Name="SCRIPT_PATH" Value="online_rul_mpu.py"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="MODE" Value="live"/>
+          <Parameter Name="MODEL_PATH" Value="model_mpu.pt"/>
+          <Parameter Name="SCALER_PATH" Value="scaler_mpu.pkl"/>
+          <Parameter Name="TOPIC" Value="ARM3"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="3999.9999999999995" y="1714.2857142857142">
+          <Parameter Name="ADDRESS" Value="10.227.155.198"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5714.285714285714" y="571.4285714285713">
+          <Parameter Name="TOPIC" Value="/PRINT"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="RUL_ESTIMATION.POLL" Source="RUL_ESTIMATION.DATA"/>
+          <Connection Comment="" Destination="RUL_THRESHOLD.RUN" Source="RUL_ESTIMATION.DATA"/>
+          <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="RUL_THRESHOLD.PRINT"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="RUL_THRESHOLD.VALUE" Source="RUL_ESTIMATION.RUL"/>
+          <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM3_SENSOR" Type="FORTE_PC" x="5999.999999999999" y="2142.8571428571427">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.12:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="179,73,198"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="IMU_STREAM" Type="IMU_STREAM" x="6135.714285714285" y="3857.142857142857">
+          <Parameter Name="EXEC_PATH" Value="./mpu9250"/>
+          <Parameter Name="SAVE_FILE" Value="/dev/stdout"/>
+          <Parameter Name="DURATION" Value="-1"/>
+          <Parameter Name="FREQ" Value="4000"/>
+          <Parameter Name="TARGET_IP" Value="10.0.0.1"/>
+          <Parameter Name="TARGET_PORT" Value="1883"/>
+          <Parameter Name="TOPIC" Value="ARM3"/>
+        </FB>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM2_DT" Type="FORTE_PC" x="3428.5714285714284" y="2142.8571428571427">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.211:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="183,207,36"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="5571.428571428571" y="714.2857142857142">
+          <Parameter Name="TOPIC" Value="/PRINT"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="RUL_THRESHOLD" Type="RUL_THRESHOLD" x="3571.428571428571" y="857.1428571428571">
+          <Parameter Name="THRESHOLD" Value="3.93"/>
+        </FB>
+        <FB Comment="" Name="RUL_ESTIMATION" Type="RUL_ESTIMATION" x="1571.4285714285713" y="857.1428571428571">
+          <Parameter Name="ENV_PATH" Value="myenv"/>
+          <Parameter Name="SCRIPT_PATH" Value="online_rul_piezo.py"/>
+          <Parameter Name="PORT" Value="/dev/ttyACM0"/>
+          <Parameter Name="MODEL_PATH" Value="model_piezo.pt"/>
+          <Parameter Name="SCALER_PATH" Value="scaler_piezo.pkl"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT" Type="CONNECT_MQTT" x="4142.857142857142" y="1857.1428571428569">
+          <Parameter Name="ADDRESS" Value="10.227.155.198"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="RUL_THRESHOLD.PRINT"/>
+          <Connection Comment="" Destination="RUL_ESTIMATION.POLL" Source="RUL_ESTIMATION.DATA"/>
+          <Connection Comment="" Destination="RUL_THRESHOLD.RUN" Source="RUL_ESTIMATION.DATA"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="RUL_THRESHOLD.VALUE" Source="RUL_ESTIMATION.RUL"/>
+          <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT.CLIENT"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM1_SENSOR" Type="FORTE_PC" x="714.2857142857142" y="2142.8571428571427">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.15:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="40,231,44"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="IMU_STREAM" Type="IMU_STREAM" x="5428.571428571428" y="2857.142857142857">
+          <Parameter Name="EXEC_PATH" Value="./adxl345spi"/>
+          <Parameter Name="SAVE_FILE" Value="/dev/stdout"/>
+          <Parameter Name="DURATION" Value="-1"/>
+          <Parameter Name="FREQ" Value="3200"/>
+          <Parameter Name="TARGET_IP" Value="10.0.0.1"/>
+          <Parameter Name="TARGET_PORT" Value="1883"/>
+          <Parameter Name="TOPIC" Value="ARM1"/>
+        </FB>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Comment="" Name="ARM1_DT" Type="FORTE_PC" x="999.9999999999999" y="2857.142857142857">
+    <Parameter Name="MGR_ID" Value="&quot;10.227.18.27:61499&quot;"/>
+    <Attribute Comment="device profile" Name="Profile" Type="STRING" Value="HOLOBLOC"/>
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="123,179,222"/>
+    <Resource Comment="" Name="EMB_RES" Type="EMB_RES" x="0.0" y="0.0">
+      <FBNetwork>
+        <FB Comment="" Name="WRITE_MQTT" Type="WRITE_MQTT" x="7714.285714285714" y="1428.5714285714284">
+          <Parameter Name="TOPIC" Value="/PRINT"/>
+          <Parameter Name="MESSAGE" Value="V"/>
+        </FB>
+        <FB Comment="" Name="CONNECT_MQTT_2" Type="CONNECT_MQTT" x="6285.714285714285" y="2428.5714285714284">
+          <Parameter Name="ADDRESS" Value="10.227.155.198"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="TIMEOUT" Value="30"/>
+        </FB>
+        <FB Comment="" Name="RUL_ESTIMATION" Type="RUL_ESTIMATION" x="4285.714285714285" y="3142.8571428571427">
+          <Parameter Name="ENV_PATH" Value="myenv"/>
+          <Parameter Name="SCRIPT_PATH" Value="online_rul_adxl.py"/>
+          <Parameter Name="PORT" Value="1883"/>
+          <Parameter Name="MODE" Value="stdin"/>
+          <Parameter Name="MODEL_PATH" Value="model_adxl.pt"/>
+          <Parameter Name="SCALER_PATH" Value="scaler_adxl.pkl"/>
+          <Parameter Name="TOPIC" Value="ARM1"/>
+        </FB>
+        <FB Comment="" Name="RUL_THRESHOLD" Type="RUL_THRESHOLD" x="5999.999999999999" y="3571.428571428571">
+          <Parameter Name="THRESHOLD" Value="4.47"/>
+        </FB>
+        <EventConnections>
+          <Connection Comment="" Destination="RUL_THRESHOLD.RUN" Source="RUL_ESTIMATION.DATA"/>
+          <Connection Comment="" Destination="WRITE_MQTT.RUN" Source="RUL_THRESHOLD.PRINT"/>
+          <Connection Comment="" Destination="RUL_ESTIMATION.POLL" Source="RUL_ESTIMATION.DATA"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Comment="" Destination="WRITE_MQTT.CLIENT" Source="CONNECT_MQTT_2.CLIENT"/>
+          <Connection Comment="" Destination="RUL_THRESHOLD.VALUE" Source="RUL_ESTIMATION.RUL"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="ARM1.WRITE_MQTT" To="ARM1.EMB_RES.WRITE_MQTT"/>
+  <Mapping From="ARM1.CONNECT_MQTT" To="ARM1.EMB_RES.CONNECT_MQTT"/>
+  <Mapping From="ARM1.WRITE_MQTT_1" To="ARM1.EMB_RES.WRITE_MQTT_1"/>
+  <Mapping From="ARM1.READ_MQTT_1" To="ARM1.EMB_RES.READ_MQTT_1"/>
+  <Mapping From="ARM1.ARM1_12_CONTROL" To="ARM1.EMB_RES.ARM1_12_CONTROL"/>
+  <Mapping From="ARM1.ARM1_21_CONTROL" To="ARM1.EMB_RES.ARM1_21_CONTROL"/>
+  <Mapping From="ARM1.CONNECT_MQTT_1" To="ARM1.EMB_RES.CONNECT_MQTT_1"/>
+  <Mapping From="ARM1.READ_MQTT" To="ARM1.EMB_RES.READ_MQTT"/>
+  <Mapping From="ARM2.ARM2_23_CONTROL" To="ARM2.EMB_RES.ARM2_23_CONTROL"/>
+  <Mapping From="ARM2.READ_MQTT_1" To="ARM2.EMB_RES.READ_MQTT_1"/>
+  <Mapping From="ARM2.WRITE_MQTT_1" To="ARM2.EMB_RES.WRITE_MQTT_1"/>
+  <Mapping From="ARM2.CONNECT_MQTT" To="ARM2.EMB_RES.CONNECT_MQTT"/>
+  <Mapping From="ARM2.CONNECT_MQTT_2" To="ARM2.EMB_RES.CONNECT_MQTT_2"/>
+  <Mapping From="ARM2.READ_MQTT" To="ARM2.EMB_RES.READ_MQTT"/>
+  <Mapping From="ARM2.WRITE_MQTT" To="ARM2.EMB_RES.WRITE_MQTT"/>
+  <Mapping From="ARM2.ARM2_21_CONTROL" To="ARM2.EMB_RES.ARM2_21_CONTROL"/>
+  <Mapping From="ARM2.CONNECT_MQTT_1" To="ARM2.EMB_RES.CONNECT_MQTT_1"/>
+  <Mapping From="ARM3.ARM3_32_CONTROL" To="ARM3.EMB_RES.ARM3_32_CONTROL"/>
+  <Mapping From="ARM3.WRITE_MQTT_1" To="ARM3.EMB_RES.WRITE_MQTT_1"/>
+  <Mapping From="ARM3.READ_MQTT" To="ARM3.EMB_RES.READ_MQTT"/>
+  <Mapping From="ARM3.READ_MQTT_1" To="ARM3.EMB_RES.READ_MQTT_1"/>
+  <Mapping From="ARM3.CONNECT_MQTT_1" To="ARM3.EMB_RES.CONNECT_MQTT_1"/>
+  <Mapping From="ARM3.WRITE_MQTT" To="ARM3.EMB_RES.WRITE_MQTT"/>
+  <Mapping From="ARM3.CONNECT_MQTT" To="ARM3.EMB_RES.CONNECT_MQTT"/>
+  <Mapping From="ARM3.ARM3_23_CONTROL" To="ARM3.EMB_RES.ARM3_23_CONTROL"/>
+  <Mapping From="PsM1.WRITE_MQTT" To="ARM1_DT.EMB_RES.WRITE_MQTT"/>
+  <Mapping From="PsM1.CONNECT_MQTT_2" To="ARM1_DT.EMB_RES.CONNECT_MQTT_2"/>
+  <Mapping From="ARM3.IMU_STREAM" To="ARM3_SENSOR.EMB_RES.IMU_STREAM"/>
+  <Mapping From="ARM1.IMU_STREAM" To="ARM1_SENSOR.EMB_RES.IMU_STREAM"/>
+  <Mapping From="PsM1.RUL_ESTIMATION" To="ARM1_DT.EMB_RES.RUL_ESTIMATION"/>
+  <Mapping From="PsM1.RUL_THRESHOLD" To="ARM1_DT.EMB_RES.RUL_THRESHOLD"/>
+  <Mapping From="PRINTER.PRINT_START" To="PRINTER.EMB_RES.PRINT_START"/>
+  <Mapping From="PRINTER.PRINT_QUEUE" To="PRINTER.EMB_RES.PRINT_QUEUE"/>
+  <Mapping From="PRINTER.PRINT_CHECK" To="PRINTER.EMB_RES.PRINT_CHECK"/>
+  <Mapping From="PRINTER.CONNECT_MQTT" To="PRINTER.EMB_RES.CONNECT_MQTT"/>
+  <Mapping From="PRINTER.READ_MQTT" To="PRINTER.EMB_RES.READ_MQTT"/>
+  <Mapping From="PsM3.RUL_THRESHOLD" To="ARM3_DT.EMB_RES.RUL_THRESHOLD"/>
+  <Mapping From="PsM3.RUL_ESTIMATION" To="ARM3_DT.EMB_RES.RUL_ESTIMATION"/>
+  <Mapping From="PsM3.CONNECT_MQTT" To="ARM3_DT.EMB_RES.CONNECT_MQTT"/>
+  <Mapping From="PsM3.WRITE_MQTT" To="ARM3_DT.EMB_RES.WRITE_MQTT"/>
+  <Mapping From="PsM2.WRITE_MQTT" To="ARM2_DT.EMB_RES.WRITE_MQTT"/>
+  <Mapping From="PsM2.RUL_THRESHOLD" To="ARM2_DT.EMB_RES.RUL_THRESHOLD"/>
+  <Mapping From="PsM2.RUL_ESTIMATION" To="ARM2_DT.EMB_RES.RUL_ESTIMATION"/>
+  <Mapping From="PsM2.CONNECT_MQTT" To="ARM2_DT.EMB_RES.CONNECT_MQTT"/>
+  <Segment Comment="" Name="Ethernet" Type="Ethernet" dx1="1757.1428571428569" x="2935.7142857142853" y="699.9999999999999">
+    <Attribute Comment="color" Name="Color" Type="STRING" Value="225,119,44"/>
+  </Segment>
+  <Link CommResource="ARM3" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM2" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM1" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="PRINTER" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM3_DT" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM3_SENSOR" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM2_DT" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM1_SENSOR" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="ARM1_DT" Comment="" SegmentName="Ethernet"/>
+</System>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Name="PRINT_QUEUE" OpcUa="SERVICE">
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Type="Event"/>
+      <Event Name="REQUEST" Type="Event">
+        <With Var="REQUEST_FILE"/>
+      </Event>
+      <Event Name="CHECK" Type="Event">
+        <With Var="JOB_STATE"/>
+        <With Var="START_TIMEOUT"/>
+      </Event>
+      <Event Name="START_FAILED" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INIT_O" Type="Event"/>
+      <Event Name="QUEUED" Type="Event">
+        <With Var="QUEUE_SIZE"/>
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="START_PRINT" Type="Event">
+        <With Var="FILE_PATH"/>
+        <With Var="QUEUE_SIZE"/>
+      </Event>
+      <Event Name="DROPPED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="REQUEST_FILE" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="JOB_STATE" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="START_TIMEOUT" Type="REAL" OpcUa="Constant"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="FILE_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="QUEUE_SIZE" Type="INT" OpcUa="Variable"/>
+      <VarDeclaration Name="STATUS" Type="STRING" OpcUa="Variable"/>
+    </OutputVars>
+  </InterfaceList>
+</FBType>

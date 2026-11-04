@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Name="IMU_STREAM" OpcUa="SERVICE">
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Type="Event"/>
+      <Event Name="START" Type="Event">
+        <With Var="EXEC_PATH"/>
+        <With Var="SAVE_FILE"/>
+        <With Var="DURATION"/>
+        <With Var="FREQ"/>
+        <With Var="TARGET_IP"/>
+        <With Var="TARGET_PORT"/>
+        <With Var="TOPIC"/>
+      </Event>
+      <Event Name="STOP" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INIT_O" Type="Event"/>
+      <Event Name="STARTED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="START_FAILED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+      <Event Name="STOPPED" Type="Event">
+        <With Var="STATUS"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="EXEC_PATH" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="SAVE_FILE" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="DURATION" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="FREQ" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="TARGET_IP" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="TARGET_PORT" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="TOPIC" Type="STRING" OpcUa="Variable"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="STATUS" Type="STRING" OpcUa="Variable"/>
+    </OutputVars>
+  </InterfaceList>
+</FBType>

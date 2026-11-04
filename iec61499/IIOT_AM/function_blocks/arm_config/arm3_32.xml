@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<Information>
+  <Position Base="17.0" Gripper="0.0" Left="110.0" Name="17_low_open" Right="100.0"/>
+  <Position Base="17.0" Gripper="110.0" Left="110.0" Name="17_low_closed" Right="100.0"/>
+  <Position Base="17.0" Gripper="110.0" Left="90.0" Name="17_up" Right="90.0"/>
+  <Position Base="180.0" Gripper="110.0" Left="90.0" Name="180_up" Right="90.0"/>
+  <Position Base="180.0" Gripper="110.0" Left="105.0" Name="180_down_closed" Right="95.0"/>
+  <Position Base="180.0" Gripper="0.0" Left="105.0" Name="180_down_open" Right="95.0"/>
+  <Position Base="180.0" Gripper="0.0" Left="0.0" Name="180_back" Right="0.0"/>
+  <Position Base="17.0" Gripper="0.0" Left="0.0" Name="17_back" Right="0.0"/>
+  <Sequences>
+    <Sequence position_name="180_down_open" time="1.0"/>
+    <Sequence position_name="180_down_closed" time="1.0"/>
+    <Sequence position_name="180_up" time="1.0"/>
+    <Sequence position_name="17_up" time="1.0"/>
+    <Sequence position_name="17_low_closed" time="1.0"/>
+    <Sequence position_name="17_low_open" time="1.0"/>
+    <Sequence position_name="17_back" time="0.5"/>
+  </Sequences>
+</Information>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Name="PRINT_CHECK" OpcUa="DEVICE.SENSOR">
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Type="Event"/>
+      <Event Name="READ" Type="Event">
+        <With Var="OCTO_URL"/>
+        <With Var="REQUEST_TIMEOUT"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INIT_O" Type="Event"/>
+      <Event Name="READ_O" Type="Event">
+        <With Var="JOB_STATE"/>
+      </Event>
+      <Event Name="PRINT_DONE" Type="Event">
+        <With Var="JOB_INFO"/>
+      </Event>
+      <Event Name="PRINT_ERROR" Type="Event">
+        <With Var="JOB_INFO"/>
+      </Event>
+      <Event Name="PROGRESS_UPDATE" Type="Event">
+        <With Var="COMPLETION"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="OCTO_URL" Type="STRING" OpcUa="Constant"/>
+      <VarDeclaration Name="REQUEST_TIMEOUT" Type="REAL" OpcUa="Constant"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="JOB_STATE" Type="STRING" OpcUa="Variable"/>
+      <VarDeclaration Name="COMPLETION" Type="REAL" OpcUa="Variable"/>
+      <VarDeclaration Name="JOB_INFO" Type="STRING" OpcUa="Variable"/>
+    </OutputVars>
+  </InterfaceList>
+</FBType>

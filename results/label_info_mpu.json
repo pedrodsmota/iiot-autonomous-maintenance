@@ -1,0 +1,9 @@
+{
+  "sensor": "mpu",
+  "eol_mode": "failure_onset",
+  "t_fpt_s": 19333.0,
+  "t_eol_s": 74014.0,
+  "L_s": 54681.0,
+  "fpt_fraction_of_life": 0.2612073391520523,
+  "n_pca": 12
+}

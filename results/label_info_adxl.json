@@ -1,0 +1,9 @@
+{
+  "sensor": "adxl",
+  "eol_mode": "failure_onset",
+  "t_fpt_s": 29276.0,
+  "t_eol_s": 74014.0,
+  "L_s": 44738.0,
+  "fpt_fraction_of_life": 0.39554678844542923,
+  "n_pca": 10
+}

@@ -1,0 +1,9 @@
+{
+  "sensor": "piezo",
+  "eol_mode": "failure_onset",
+  "t_fpt_s": 10916.0,
+  "t_eol_s": 74014.0,
+  "L_s": 63098.0,
+  "fpt_fraction_of_life": 0.14748561083038345,
+  "n_pca": 5
+}

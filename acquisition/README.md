@@ -22,7 +22,7 @@ the C utilities), so that sampling is never blocked by storage.
 
 The MPU9250 utility uses `/dev/spidev0.0` at 4 MHz. Known issues of the recordings,
 including isolated impulses in the MPU9250, are listed in the
-[data card](../dataset/README.md#3-known-issues---read-before-using-the-data).
+[data card](https://github.com/pedrodsmota/iiot-autonomous-maintenance/blob/main/dataset/README.md#3-known-issues---read-before-using-the-data).
 
 ## adxl345/
 Modified version of [adxl345spi](https://github.com/nagimov/adxl345spi) (GPL-3.0,

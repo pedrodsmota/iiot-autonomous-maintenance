@@ -1,0 +1,6 @@
+# Online estimation on the PdM nodes, as reported in the article (Python 3.13.5)
+torch==2.12.0
+numpy
+scipy
+scikit-learn
+pyserial   # Arm #2 only

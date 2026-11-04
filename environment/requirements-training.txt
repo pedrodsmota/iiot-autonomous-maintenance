@@ -1,0 +1,8 @@
+# Offline pipeline, as reported in the article (Python 3.9.6)
+torch==2.8.0
+optuna==5.0.0
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib

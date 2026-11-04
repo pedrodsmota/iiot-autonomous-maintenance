@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article below."
+title: "IIoT Autonomous Maintenance: code and models of the Applied Sciences article"
+version: "1.0-article"
+authors:
+  - family-names: Mota
+    given-names: Pedro
+  - family-names: Pinto
+    given-names: Rui
+repository-code: "https://github.com/pedrodsmota/iiot-autonomous-maintenance"
+license: MIT
+date-released: 2026-11-05
+preferred-citation:
+  type: article
+  title: "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing"
+  authors:
+    - family-names: Mota
+      given-names: Pedro
+    - family-names: Pinto
+      given-names: Rui
+  journal: "Applied Sciences"
+  year: 2026

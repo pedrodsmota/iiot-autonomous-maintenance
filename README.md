@@ -2,7 +2,7 @@
 
 **Predict a failure, decide when to act, and 3D-print the replacement part before the component breaks: without a human in the decision.**
 
-This repository contains the code, trained models, and results of an MSc dissertation (FEUP, 2026) and of the accompanying article in *Applied Sciences*. It implements a closed maintenance loop on a laboratory production line:
+This repository contains the code, trained models, and results of an MSc dissertation (FEUP, 2026). The earlier version used in the accompanying article in *Applied Sciences* is also [available](#versions). It implements a closed maintenance loop on a laboratory production line:
 
 1. vibration sensors on the grippers of three robotic arms stream data to edge nodes;
 2. on each node, a CNN-BiLSTM model estimates the **Health Index (HI)** of the gripper, from which its **Remaining Useful Life (RUL)** is derived;
@@ -12,6 +12,15 @@ This repository contains the code, trained models, and results of an MSc dissert
 Everything runs as an **IEC 61499** distributed control application (DINASORE runtime) on Raspberry Pi devices communicating over **MQTT**, with supervision over **OPC UA**. In three end-to-end trials on new degradation runs, the part was completed 57 to 73 minutes before the gripper failed.
 
 ![System architecture: one digital twin instance per monitored asset, sharing the additive manufacturing node](docs/figures/architecture.png)
+
+## Versions
+
+| Version | For | Where |
+|---|---|---|
+| `v2.0-dissertation` | The MSc dissertation. Latest version: start here | This branch (`main`) |
+| `v1.0-article` | The article in *Applied Sciences*. Earlier code, models, and trials, kept as a record | [`article` branch](https://github.com/pedrodsmota/iiot-autonomous-maintenance/tree/article) |
+
+The results of the two versions come from different models and trials; the [README of the article version](https://github.com/pedrodsmota/iiot-autonomous-maintenance/blob/article/README.md) compares them.
 
 ---
 

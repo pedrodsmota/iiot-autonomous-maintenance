@@ -1,0 +1,23 @@
+session,duration_s,condition,fault_stages_present,piezo_sensor_unit,piezo_calibration_factor,adxl345_data,adxl345_windows_without_signal,notes
+1,3600,healthy,0,A,1.0,complete,0.0,
+2,3600,healthy,0,A,1.0,complete,0.0,
+3,3600,healthy,0,A,1.0,complete,0.0,
+4,3600,healthy,0,A,1.0,complete,0.0,
+5,3600,healthy,0,A,1.0,complete,0.0,
+6,3600,healthy,0,A,1.0,partial,0.906,
+7,3600,healthy,0,A,1.0,partial,0.473,
+8,3600,healthy,0,A,1.0,none,0.818,
+9,2014,healthy,0,A,1.0,partial,0.369,session interrupted after 34 min
+10,3600,healthy,0,A,1.0,partial,0.999,slight natural wear of the grippers noted
+11,3600,healthy,0,A,1.0,partial,0.823,slight natural wear of the grippers noted
+12,3600,healthy,0,A,1.0,complete,0.001,slight natural wear of the grippers noted
+13,3600,healthy,0,A,1.0,complete,0.0,slight natural wear of the grippers noted
+14,3600,healthy,0,A,1.0,complete,0.0,slight natural wear of the grippers noted; last session with the original piezoelectric sensor
+15,3600,healthy,0,B,1.9169561438,complete,0.0,slight natural wear of the grippers noted; first session with the replacement piezoelectric sensor
+16,3600,healthy,0,B,1.9169561438,complete,0.0,"slight natural wear of the grippers noted; piezoelectric recording split into two files (trial_16, trial_16_1)"
+17,3600,fault stage 1 introduced at the start of the session,1,B,1.9169561438,complete,0.0,
+18,3600,fault stage 2 introduced at the start of the session,2,B,1.9169561438,complete,0.0,
+19,3600,fault stage 3 introduced at the start of the session,3,B,1.9169561438,complete,0.001,
+20,3600,fault stage 4 introduced at the start of the session,4,B,1.9169561438,complete,0.0,
+21,3600,fault stage 5 introduced at the start of the session,5,B,1.9169561438,complete,0.0,
+22,1805,complete failure (grippers no longer working),5,B,1.9169561438,partial,0.593,end of life = start of this session; 30 min recorded; ADXL345 disconnected during part of the session

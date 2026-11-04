@@ -1,0 +1,13 @@
+sensor,model,rmse,mae,phm2012
+ADXL345,CNN-BiLSTM,0.0334,0.0225,0.989
+ADXL345,Random forest,0.1147,0.0573,0.974
+ADXL345,Ridge regression,0.1683,0.1336,0.953
+ADXL345,RMS-based linear regression,0.2543,0.2086,0.929
+Piezoelectric,CNN-BiLSTM,0.0426,0.0312,0.994
+Piezoelectric,Random forest,0.0493,0.0289,0.990
+Piezoelectric,Ridge regression,0.1159,0.0909,0.974
+Piezoelectric,RMS-based linear regression,0.2066,0.1729,0.953
+MPU9250,CNN-BiLSTM,0.0644,0.0376,0.986
+MPU9250,Random forest,0.1159,0.0684,0.977
+MPU9250,Ridge regression,0.1627,0.1256,0.954
+MPU9250,RMS-based linear regression,0.2134,0.1645,0.938

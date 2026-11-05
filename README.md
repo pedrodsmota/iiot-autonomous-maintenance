@@ -35,7 +35,7 @@ The results of the two versions come from different models and trials, so they a
 
 ## Dataset
 
-The recordings are the same as in the `main` branch: [10.5281/zenodo.23900129](https://doi.org/10.5281/zenodo.23900129) ([data card](https://github.com/pedrodsmota/iiot-autonomous-maintenance/blob/main/dataset/README.md)). The dataset files built from them for the article (`*_dataset.pkl`, about 1.25 GB) are not published.
+The recordings are the same as in the `main` branch: [10.5281/zenodo.23900129](https://doi.org/10.5281/zenodo.23900129) ([data card](https://github.com/pedrodsmota/iiot-autonomous-maintenance/blob/main/dataset/README.md)). **Correction to the article:** it states that faults were introduced before each of sessions 16-21. They were introduced in five stages, in sessions 17-21, as in the data card. The dataset files built from them for the article (`*_dataset.pkl`, about 1.25 GB) are not published.
 
 ## Other software
 

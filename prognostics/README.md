@@ -23,3 +23,5 @@ Set `IIOT_DATA_DIR` to change the data location (default `../data`).
 2. Multiply `Vibration_Val` of sessions 15-22 by `piezo_calibration_factor` from `metadata/sessions.csv`.
 
 `tune_hyperparameters.py` and `train_final_model.py` have the list of sensors of their last run in the code (`sensors`, `SENSORS`): edit it to run the others. `train_final_model.py` needs a `best_hyperparameters_<sensor>.pkl`; those of the article are stored in the `hparams` of each checkpoint in `../models/`.
+
+The `get_qualitative_hs` function of `construct_hs_hi.py` places the introduced faults in sessions 16-21; the correct range is 17-21. It is kept as it ran. It is only used to compare the stages with the collection notes, so it does not affect the labels or the models.

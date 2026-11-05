@@ -15,7 +15,7 @@ The code is kept as it ran. The only changes are the removal of personal paths (
 | [`prognostics/`](prognostics/) | Offline pipeline: preprocessing, features, health labels, dataset, tuning, and training |
 | [`models/`](models/) | The models deployed in the end-to-end trials, and their scalers |
 | [`online/`](online/) | Online estimation scripts of the PdM nodes |
-| [`iec61499/`](iec61499/) | Function blocks and screenshots of the applications (the `.sys` file was not preserved) |
+| [`iec61499/`](iec61499/) | Function blocks, screenshots of the applications (the `.sys` file was not preserved), and the G-code of the replacement part |
 | [`acquisition/`](acquisition/) | Sampling utilities and Pico W firmware |
 | [`validation/`](validation/) | Tests, their procedures, and their results |
 | [`results/`](results/) | Table 4 and the prediction figures |
@@ -44,6 +44,8 @@ The article reports DINASORE v1.0 (Python 3.8.18). The versions on each device, 
 ## License
 
 Code: [MIT](LICENSE), except `acquisition/adxl345/` ([GPL-3.0](acquisition/adxl345/LICENSE)). Trained models, results, and documentation: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+`iec61499/replacement_part/gripper.gcode`: [CC BY-NC](iec61499/replacement_part/README.md) (non-commercial use only), the license of the gripper from which it was sliced.
 
 ---
 

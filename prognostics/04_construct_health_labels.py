@@ -41,7 +41,7 @@ RUL_TARGETS_H = [3.6, 4.0, 4.5, 5.0]   # 3.6 h = time to act (print + replacemen
 def qualitative_hs(session):
     if session <= 9:
         return 0
-    if session <= 15:
+    if session <= 16:
         return 1
     if session <= 21:
         return 2

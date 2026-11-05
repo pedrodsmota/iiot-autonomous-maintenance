@@ -33,16 +33,18 @@ references:
       - family-names: Pinto
         given-names: Rui
     journal: "Applied Sciences"
+    volume: 16
+    issue: 21
+    start: 10974
     year: 2026
-    notes: "Accepted for publication"
+    doi: "10.3390/app162110974"
   - type: dataset
     title: "Run-to-failure vibration dataset of 3D-printed robotic grippers"
     authors:
       - family-names: Mota
         given-names: Pedro
-    version: "1.0"
     year: 2026
     publisher:
       name: Zenodo
-    doi: "10.5281/zenodo.23900129"
+    doi: "10.5281/zenodo.23900128"
     license: CC-BY-4.0

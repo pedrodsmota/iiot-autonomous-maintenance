@@ -2,7 +2,7 @@
 
 **Predict a failure, decide when to act, and 3D-print the replacement part before the component breaks: without a human in the decision.**
 
-This repository contains the code, trained models, and results of an MSc dissertation (FEUP, 2026). The earlier version used in the accompanying article in *Applied Sciences* is also [available](#versions). It implements a closed maintenance loop on a laboratory production line:
+This repository contains the code, trained models, and results of an MSc dissertation (FEUP, 2026). The earlier version used in the accompanying [article in *Applied Sciences*](https://doi.org/10.3390/app162110974) is also [available](#versions). It implements a closed maintenance loop on a laboratory production line:
 
 1. vibration sensors on the grippers of three robotic arms stream data to edge nodes;
 2. on each node, a CNN-BiLSTM model estimates the **Health Index (HI)** of the gripper, from which its **Remaining Useful Life (RUL)** is derived;
@@ -98,7 +98,7 @@ See [`iec61499/README.md`](iec61499/README.md): installing DINASORE, copying the
 
 Accelerated run-to-failure of three 3D-printed robotic grippers ([parallel gripper by sthone](https://www.thingiverse.com/thing:4362304), fitted to EEZYbotARM Mk2 arms), each monitored by a different vibration sensor (ADXL345 at 3200 Hz, MPU9250 at 4000 Hz, piezoelectric sensor at ~2800 Hz), over 22 sessions (about 21 hours of operation): 16 healthy sessions, five sessions with progressively introduced faults, and the complete failure.
 
-- **Zenodo** (citable): [doi.org/10.5281/zenodo.23900129](https://doi.org/10.5281/zenodo.23900129)
+- **Zenodo** (citable): [doi.org/10.5281/zenodo.23900128](https://doi.org/10.5281/zenodo.23900128)
 - **Kaggle** (mirror, with previews and notebooks): [pedrodesousamota/run-to-failure-vibration-of-3d-printed-grippers](https://www.kaggle.com/datasets/pedrodesousamota/run-to-failure-vibration-of-3d-printed-grippers)
 
 The data card, with the protocol, the file formats, and the known issues of the recordings (in particular the replacement of the piezoelectric sensor after session 14), is in [`dataset/README.md`](dataset/README.md).
@@ -133,11 +133,11 @@ These projects are used as they are and are **not** included in this repository 
 
 If you use this code or the dataset, please cite the dissertation and/or the article (see also [`CITATION.cff`](CITATION.cff)):
 
-Dataset: P. Mota, "Run-to-failure vibration dataset of 3D-printed robotic grippers," version 1.0, Zenodo, 2026. https://doi.org/10.5281/zenodo.23900129
+Dataset: P. Mota, "Run-to-failure vibration dataset of 3D-printed robotic grippers," version 1.0, Zenodo, 2026. https://doi.org/10.5281/zenodo.23900128
 
 > P. Mota, "Leveraging IEC 61499 for Autonomous Maintenance: Digital Twin Integration and 3D Printing in Distributed Control Systems," MSc dissertation, Faculty of Engineering, University of Porto, 2026.
 
-> P. Mota and R. Pinto, "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing," *Applied Sciences*, 2026 (accepted for publication).
+> P. Mota and R. Pinto, "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing," *Applied Sciences*, vol. 16, no. 21, art. 10974, 2026. https://doi.org/10.3390/app162110974
 
 ## License
 

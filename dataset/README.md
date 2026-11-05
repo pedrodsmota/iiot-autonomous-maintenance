@@ -6,9 +6,9 @@ laboratory production line at the Faculty of Engineering of the University of Po
 (FEUP) in 2026.
 
 - **Code that uses this dataset:** https://github.com/pedrodsmota/iiot-autonomous-maintenance
-- **DOI:** [10.5281/zenodo.23900129](https://doi.org/10.5281/zenodo.23900129) (Zenodo) · mirror on [Kaggle](https://www.kaggle.com/datasets/pedrodesousamota/run-to-failure-vibration-of-3d-printed-grippers)
+- **DOI:** [10.5281/zenodo.23900128](https://doi.org/10.5281/zenodo.23900128) (Zenodo) · mirror on [Kaggle](https://www.kaggle.com/datasets/pedrodesousamota/run-to-failure-vibration-of-3d-printed-grippers)
 - **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- **Version:** 1.0
+- **Version:** 1.1 (changes to this card only; the data files are the same as in 1.0)
 
 This README describes everything needed to use the data on its own, without the code.
 
@@ -189,8 +189,8 @@ custom utility) and MicroPython on the Pico W. The code is in the folder
 
 The dataset:
 
-> P. Mota, "Run-to-failure vibration dataset of 3D-printed robotic grippers," version 1.0,
-> Zenodo, 2026. https://doi.org/10.5281/zenodo.23900129
+> P. Mota, "Run-to-failure vibration dataset of 3D-printed robotic grippers," 
+> Zenodo, 2026. https://doi.org/10.5281/zenodo.23900128
 
 The work in which it was collected and used:
 
@@ -198,9 +198,7 @@ The work in which it was collected and used:
 > and 3D Printing in Distributed Control Systems," MSc dissertation, Faculty of
 > Engineering, University of Porto, 2026.
 
-> P. Mota and R. Pinto, "An Industrial IoT Architecture for Autonomous Maintenance:
-> Integrating Digital Twins, Distributed Control, and On-Demand Additive
-> Manufacturing," *Applied Sciences*, 2026 (accepted for publication).
+> P. Mota and R. Pinto, "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing," *Applied Sciences*, vol. 16, no. 21, art. 10974, 2026. https://doi.org/10.3390/app162110974
 
 Questions and problems: open an issue in the
 [code repository](https://github.com/pedrodsmota/iiot-autonomous-maintenance/issues),

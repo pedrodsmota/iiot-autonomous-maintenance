@@ -19,4 +19,8 @@ preferred-citation:
     - family-names: Pinto
       given-names: Rui
   journal: "Applied Sciences"
+  volume: 16
+  issue: 21
+  start: 10974
   year: 2026
+  doi: "10.3390/app162110974"

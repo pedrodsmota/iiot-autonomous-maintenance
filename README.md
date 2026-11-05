@@ -2,7 +2,7 @@
 
 **This is the version of the code used in the article.** It is kept as a record. For the later and more complete version, with a cleaner pipeline, new models, and full instructions, use the [`main` branch](https://github.com/pedrodsmota/iiot-autonomous-maintenance) (release `v2.0-dissertation`).
 
-> P. Mota and R. Pinto, "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing," *Applied Sciences*, 2026.
+> P. Mota and R. Pinto, "An Industrial IoT Architecture for Autonomous Maintenance: Integrating Digital Twins, Distributed Control, and On-Demand Additive Manufacturing," *Applied Sciences*, vol. 16, no. 21, art. 10974, 2026. https://doi.org/10.3390/app162110974
 
 ![Architecture of the system](docs/figures/arch_multiple.png)
 
@@ -35,7 +35,7 @@ The results of the two versions come from different models and trials, so they a
 
 ## Dataset
 
-The recordings are the same as in the `main` branch: [10.5281/zenodo.23900129](https://doi.org/10.5281/zenodo.23900129) ([data card](https://github.com/pedrodsmota/iiot-autonomous-maintenance/blob/main/dataset/README.md)). **Correction to the article:** it states that faults were introduced before each of sessions 16-21. They were introduced in five stages, in sessions 17-21, as in the data card. The dataset files built from them for the article (`*_dataset.pkl`, about 1.25 GB) are not published.
+The recordings are the same as in the `main` branch: [10.5281/zenodo.23900128](https://doi.org/10.5281/zenodo.23900128) ([data card](https://github.com/pedrodsmota/iiot-autonomous-maintenance/blob/main/dataset/README.md)). **Correction to the article:** it states that faults were introduced before each of sessions 16-21. They were introduced in five stages, in sessions 17-21, as in the data card. The dataset files built from them for the article (`*_dataset.pkl`, about 1.25 GB) are not published.
 
 ## Other software
 

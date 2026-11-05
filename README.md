@@ -133,7 +133,7 @@ These projects are used as they are and are **not** included in this repository 
 
 If you use this code or the dataset, please cite the dissertation and/or the article (see also [`CITATION.cff`](CITATION.cff)):
 
-Dataset: P. Mota, "Run-to-failure vibration dataset of 3D-printed robotic grippers," version 1.0, Zenodo, 2026. https://doi.org/10.5281/zenodo.23900128
+Dataset: P. Mota, "Run-to-failure vibration dataset of 3D-printed robotic grippers," Zenodo, 2026. https://doi.org/10.5281/zenodo.23900128
 
 > P. Mota, "Leveraging IEC 61499 for Autonomous Maintenance: Digital Twin Integration and 3D Printing in Distributed Control Systems," MSc dissertation, Faculty of Engineering, University of Porto, 2026.
 
